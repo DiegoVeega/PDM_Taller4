@@ -43,5 +43,4 @@ class AutorRepo(private val autorDao: AutorDao){
     @WorkerThread
     suspend fun insert(autor: Autor) = autorDao.insert(autor)
 
-
 }
