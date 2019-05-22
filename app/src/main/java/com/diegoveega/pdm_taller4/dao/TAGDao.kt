@@ -19,4 +19,7 @@ interface TAGDao{
     @Update
     fun updateLibros(vararg tag: TAG)
 
+    @Query("DELETE FROM TAG_table")
+    fun deleteAll()
+
 }

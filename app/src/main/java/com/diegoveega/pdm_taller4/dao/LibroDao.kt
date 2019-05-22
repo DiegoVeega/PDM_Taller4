@@ -17,4 +17,7 @@ interface LibroDao{
     @Update
     fun updateLibros(vararg libro: Libro)
 
+    @Query("DELETE FROM libro_table")
+    fun deleteAll()
+
 }

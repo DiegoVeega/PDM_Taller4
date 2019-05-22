@@ -49,5 +49,9 @@ abstract class LibroRoomDatabase : RoomDatabase() {
                 }
             }
         }
+
+        suspend fun populateDatabase(libroDao: LibroDao){
+            libroDao.deleteAll()
+        }
     }
 }

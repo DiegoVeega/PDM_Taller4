@@ -19,4 +19,7 @@ interface AutorDao{
     @Update
     fun updateLibros(vararg autor: Autor)
 
+    @Query("DELETE FROM autor_table")
+    fun deleteAll()
+
 }
