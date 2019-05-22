@@ -40,8 +40,6 @@ abstract class LibroRoomDatabase : RoomDatabase() {
         private class LibroDatabaseCallback(private val scope: CoroutineScope): RoomDatabase.Callback(){
             override fun onOpen(db: SupportSQLiteDatabase) {
                 super.onOpen(db)
-                // If you want to keep the data through app restarts,
-                // comment out the following line.
                 INSTANCE?.let { database ->
                     scope.launch(Dispatchers.IO) {
                         populateDatabase(database.libroDao())
