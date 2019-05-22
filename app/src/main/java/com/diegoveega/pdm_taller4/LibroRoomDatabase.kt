@@ -10,11 +10,12 @@ import com.diegoveega.pdm_taller4.dao.LibroDao
 import com.diegoveega.pdm_taller4.dao.TAGDao
 import com.diegoveega.pdm_taller4.models.Autor
 import com.diegoveega.pdm_taller4.models.Libro
+import com.diegoveega.pdm_taller4.models.TAG
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-@Database(entities = [Libro::class], version = 1 ,exportSchema = false)
+@Database(entities = [Libro::class, Libro::class, TAG::class], version = 2 ,exportSchema = false)
 abstract class LibroRoomDatabase : RoomDatabase() {
 
     abstract fun libroDao(): LibroDao
@@ -42,14 +43,16 @@ abstract class LibroRoomDatabase : RoomDatabase() {
                 super.onOpen(db)
                 INSTANCE?.let { database ->
                     scope.launch(Dispatchers.IO) {
-                        populateDatabase(database.libroDao())
+                        populateDatabase(database.libroDao(), database.autorDao(), database.TAGDao())
                     }
                 }
             }
         }
 
-        suspend fun populateDatabase(libroDao: LibroDao){
+        suspend fun populateDatabase(libroDao: LibroDao, autorDao: AutorDao, tagDao: TAGDao){
             libroDao.deleteAll()
+            autorDao.deleteAll()
+            tagDao.deleteAll()
         }
     }
 }
