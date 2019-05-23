@@ -1,46 +1,32 @@
 package com.diegoveega.pdm_taller4.repositories
 
+import android.app.Application
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
+import com.diegoveega.pdm_taller4.LibroRoomDatabase
 import com.diegoveega.pdm_taller4.dao.AutorDao
 import com.diegoveega.pdm_taller4.dao.LibroDao
 import com.diegoveega.pdm_taller4.dao.TAGDao
 import com.diegoveega.pdm_taller4.models.Autor
 import com.diegoveega.pdm_taller4.models.Libro
 import com.diegoveega.pdm_taller4.models.TAG
+class Repository(private val libroDao: LibroDao, private val tagDao: TAGDao, private val autorDao: AutorDao){
 
-class LibroRepo(private val libroDao: LibroDao){
     fun getAllLibros(): LiveData<List<Libro>> = libroDao.getAllLibros()
-
-    fun deleteAll()=libroDao.deleteAll()
-
+    fun deleteAlllibros()=libroDao.deleteAll()
     fun updateLibros(libro: Libro) = libroDao.updateLibros(libro)
-
     @WorkerThread
-    suspend fun insert(libro:Libro) = libroDao.insert(libro)
+    suspend fun insertlibros(libro:Libro) = libroDao.insert(libro)
 
-
-}
-class TAGRepo(private val tagDao: TAGDao){
-    fun getAllLibros(): LiveData<List<TAG>> = tagDao.getAllLibros()
-
-    fun deleteAll()=tagDao.deleteAll()
-
-    fun updateLibros(tag: TAG) = tagDao.updateLibros(tag)
-
+    fun getAllLtags(): LiveData<List<TAG>> = tagDao.getAllLibros()
+    fun deleteAlltags()=tagDao.deleteAll()
+    fun updatetags(tag: TAG) = tagDao.updateLibros(tag)
     @WorkerThread
-    suspend fun insert(tag: TAG) = tagDao.insert(tag)
+    suspend fun inserttags(tag: TAG) = tagDao.insert(tag)
 
-
-}
-class AutorRepo(private val autorDao: AutorDao){
-    fun getAllLibros(): LiveData<List<Autor>> = autorDao.getAllLibros()
-
-    fun deleteAll()=autorDao.deleteAll()
-
-    fun updateLibros(autor: Autor) = autorDao.updateLibros(autor)
-
+    fun getAllautor(): LiveData<List<Autor>> = autorDao.getAllLibros()
+    fun deleteAllautor()=autorDao.deleteAll()
+    fun updateautor(autor: Autor) = autorDao.updateLibros(autor)
     @WorkerThread
-    suspend fun insert(autor: Autor) = autorDao.insert(autor)
-
+    suspend fun insertautor(autor: Autor) = autorDao.insert(autor)
 }
