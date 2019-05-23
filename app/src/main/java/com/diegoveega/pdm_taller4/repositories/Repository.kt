@@ -12,6 +12,8 @@ import com.diegoveega.pdm_taller4.models.Libro
 import com.diegoveega.pdm_taller4.models.TAG
 class Repository(private val libroDao: LibroDao, private val tagDao: TAGDao, private val autorDao: AutorDao){
 
+
+
     fun getAllLibros(): LiveData<List<Libro>> = libroDao.getAllLibros()
     fun deleteAlllibros()=libroDao.deleteAll()
     fun updateLibros(libro: Libro) = libroDao.updateLibros(libro)
