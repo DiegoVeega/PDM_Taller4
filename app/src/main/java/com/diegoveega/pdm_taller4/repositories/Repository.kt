@@ -15,20 +15,20 @@ class Repository(private val libroDao: LibroDao, private val tagDao: TAGDao, pri
 
 
     fun getAllLibros(): LiveData<List<Libro>> = libroDao.getAllLibros()
-    fun deleteAlllibros()=libroDao.deleteAll()
+    fun deleteAllLibros()=libroDao.deleteAll()
     fun updateLibros(libro: Libro) = libroDao.updateLibros(libro)
     @WorkerThread
     suspend fun insertlibros(libro:Libro) = libroDao.insert(libro)
 
-    fun getAllLtags(): LiveData<List<TAG>> = tagDao.getAllLibros()
-    fun deleteAlltags()=tagDao.deleteAll()
-    fun updatetags(tag: TAG) = tagDao.updateLibros(tag)
+    fun getAlltags(): LiveData<List<TAG>> = tagDao.getAllLibros()
+    fun deleteAllTags()=tagDao.deleteAll()
+    fun updateTags(tag: TAG) = tagDao.updateLibros(tag)
     @WorkerThread
     suspend fun inserttags(tag: TAG) = tagDao.insert(tag)
 
     fun getAllautor(): LiveData<List<Autor>> = autorDao.getAllLibros()
-    fun deleteAllautor()=autorDao.deleteAll()
-    fun updateautor(autor: Autor) = autorDao.updateLibros(autor)
+    fun deleteAllAutor()=autorDao.deleteAll()
+    fun updateAutor(autor: Autor) = autorDao.updateLibros(autor)
     @WorkerThread
     suspend fun insertautor(autor: Autor) = autorDao.insert(autor)
 }
