@@ -26,7 +26,7 @@ abstract class LibroRoomDatabase : RoomDatabase() {
         @Volatile
         private var INSTANCE: LibroRoomDatabase? = null
 
-        fun getDatabase(context: Context, scope: CoroutineScope): LibroRoomDatabase {
+        fun getIntance(context: Context, scope: CoroutineScope): LibroRoomDatabase {
 
             return INSTANCE ?: synchronized(this){
                 val instance = Room.databaseBuilder(context.applicationContext,LibroRoomDatabase::class.java,"libro_database")
