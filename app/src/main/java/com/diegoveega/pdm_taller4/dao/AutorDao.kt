@@ -21,5 +21,4 @@ interface AutorDao{
 
     @Query("DELETE FROM autor_table")
     fun deleteAll()
-
 }

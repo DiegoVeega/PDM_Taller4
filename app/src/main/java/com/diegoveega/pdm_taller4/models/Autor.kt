@@ -6,6 +6,7 @@ import androidx.room.PrimaryKey
 
 @Entity (tableName = "autor_table")
 data class Autor
-    (@PrimaryKey @ColumnInfo(name = "nombre") val nombre_autor : String,
+    (@PrimaryKey (autoGenerate = true) val id_autor: Int,
+     @ColumnInfo(name = "nombre") val nombre_autor : String,
      @ColumnInfo(name = "apellido") val apellido_autor : String,
      @ColumnInfo(name = "libro") val libro_autor : Libro)

@@ -7,4 +7,5 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "TAG_table")
 data class TAG
-    (@PrimaryKey @ColumnInfo(name = "nombre") val nombre_tag : String)
+    (@PrimaryKey (autoGenerate = true) val id_libro: Int,
+     @ColumnInfo(name = "nombre") val nombre_tag : String)

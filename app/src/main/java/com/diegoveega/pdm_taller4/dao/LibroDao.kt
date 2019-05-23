@@ -19,5 +19,4 @@ interface LibroDao{
 
     @Query("DELETE FROM libro_table")
     fun deleteAll()
-
 }
